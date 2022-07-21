@@ -1,0 +1,20 @@
+@foreach ($videos as $video)
+<div class="video-item col-md-10 pull-left panel panel-default">
+    <div class="panel-body">
+        {{-- imagen del video --}}
+        @if (Storage::disk('images')->has($video->image))
+            <div class="video-image-thumb col-md-4 pull-left">
+                <div class="video-image-mask">
+                    <img src="{{ route('video.getImage', ['filename' => $video->image]) }}" class="video-image"/>
+                </div>
+            </div>
+        @endif
+
+        <div class="data">
+            <h4>{{$video->title}}</h4>
+        </div>
+
+        {{-- botones de accion --}}
+    </div>
+</div>
+@endforeach
